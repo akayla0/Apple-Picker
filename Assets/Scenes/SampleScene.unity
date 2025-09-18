@@ -227,6 +227,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -308,6 +309,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c267ca935452c34448ae7dfb1982a6ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basketPrefab: {fileID: 2787273150782815396, guid: 0689b32ed552fe64986bcbba76871df9, type: 3}
+  numBaskets: 3
+  basketBottomY: -14
+  basketSpacingY: 2
 --- !u!1001 &5550415586203692436
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -364,6 +381,10 @@ PrefabInstance:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7585301555012436653, guid: 048c443e19e2cab48a14f39b6bd8f976, type: 3}
+      propertyPath: applePrefab
+      value: 
+      objectReference: {fileID: 9183897059919536431, guid: bcf128289bc0faf4db8a6f1214f72d51, type: 3}
     - target: {fileID: 7585301555012436653, guid: 048c443e19e2cab48a14f39b6bd8f976, type: 3}
       propertyPath: changeDirChance
       value: 0.02
