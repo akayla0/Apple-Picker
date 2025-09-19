@@ -3,13 +3,16 @@ using UnityEngine;
 
 public class Basket : MonoBehaviour
 {
-    
+    public ScoreCounter scoreCounter;
+
     void Start()
     {
-        
+        GameObject scoreG0 = GameObject.Find("ScoreCounter");
+        scoreCounter = scoreG0 .GetComponent<ScoreCounter>();
+
     }
 
-    
+
     void Update()
     {
         Vector3 mousePos2D = Input.mousePosition;
@@ -20,11 +23,18 @@ public class Basket : MonoBehaviour
         this.transform.position = Pos;
     }
 
-    void OnCollisionEnter(Collision coll) {
+    void OnCollisionEnter(Collision coll)
+    {
         GameObject collidedWith = coll.gameObject;
         if (collidedWith.CompareTag("Apple"))
         {
             Destroy(collidedWith);
+            scoreCounter.score += 100;
+            HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
+        }
+        else
+        {
         }
     }
+
 }

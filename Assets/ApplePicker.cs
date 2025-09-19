@@ -9,22 +9,43 @@ public class ApplePicker : MonoBehaviour
     public int numBaskets = 3;
     public float basketBottomY = -14f;
     public float basketSpacingY = 2f;
+    private Stack<GameObject> basketStack;
 
     void Start()
     {
+        basketStack = new Stack<GameObject>();
         for (int i = 0; i < numBaskets; i++)
         {
             GameObject tBasketG0 = Instantiate<GameObject>(basketPrefab);
             Vector3 pos = Vector3.zero;
             pos.y = basketBottomY + (basketSpacingY * i);
-            tBasketG0 .transform.position = pos;
+            tBasketG0.transform.position = pos;
+            basketStack.Push(tBasketG0);
         }
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void RemoveBasket()
     {
-        
+        if (basketStack.Count == 0)
+        {
+
+        }
+        else
+        {
+            GameObject basket = basketStack.Pop();
+            AppleMissed();
+            Destroy(basket);
+        }
+
+
+    }
+    public void AppleMissed()
+    {
+        GameObject[] appleArray = GameObject.FindGameObjectsWithTag("Apple");
+        foreach (GameObject tempG0 in appleArray)
+        {
+            Destroy(tempG0);
+        }
     }
 }
